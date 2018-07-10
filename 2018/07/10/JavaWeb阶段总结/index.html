@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="细数一些web相关总结">
+<meta name="keywords" content="零散,web,总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部分总结   &lt;!--文章标题--&gt;">
+<meta property="og:url" content="http://yoursite.com/2018/07/10/JavaWeb阶段总结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="细数一些web相关总结">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://os4z8t7lb.bkt.clouddn.com/201710112316_298.png">
+<meta property="og:updated_time" content="2018-07-10T09:31:57.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="部分总结   &lt;!--文章标题--&gt;">
+<meta name="twitter:description" content="细数一些web相关总结">
+<meta name="twitter:image" content="http://os4z8t7lb.bkt.clouddn.com/201710112316_298.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/10/JavaWeb阶段总结/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>部分总结   <!--文章标题--> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/JavaWeb阶段总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">部分总结   <!--文章标题-->
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-07-10 17:32:25 / Updated at: 17:31:57" itemprop="dateCreated datePublished" datetime="2018-07-10T17:32:25+08:00">2018-07-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/总结-只能有一个分类/" itemprop="url" rel="index"><span itemprop="name">总结    <!--只能有一个分类--></span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">细数一些web相关总结</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- toc -->
+<h1 id="部分总结"><a href="#部分总结" class="headerlink" title="部分总结"></a>部分总结</h1><p>[TOC]</p>
+<h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><p>Tomcat的目录结构<br><img src="http://os4z8t7lb.bkt.clouddn.com/201710112316_298.png" alt="tomcat"></p>
+<p>HTTP协议<br>GET和POST的区别:</p>
+<ul>
+<li>GET的提交的参数会显示到地址栏上,而POST不显示.</li>
+<li>GET往往是有大小限制的,而POST没有大小的限制.</li>
+<li>GET没有请求体,而POST有请求体.</li>
+</ul>
+<p>补充：<br>HTTP协议未规定GET和POST的长度限制<br>GET的最大长度显示是因为浏览器和web服务器限制了URI的长度<br>不同的浏览器和WEB服务器，限制的最大长度不一样</p>
+<p>HTTP请求响应的状态码</p>
+<ul>
+<li>200 ：成功</li>
+<li>302 ：重定向</li>
+<li>304 ：查找本地缓存</li>
+<li>404 ：资源不存在</li>
+<li>500 ：服务器内部错误</li>
+</ul>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><a id="more"></a>
+<h3 id="Servlet概念"><a href="#Servlet概念" class="headerlink" title="Servlet概念"></a>Servlet概念</h3><p>Servlet就是一个运行在WEB服务器上的小的Java程序(当访问到指定的Servlet时有服务器找到指定Servlet并利用反射执行其Service方法),用来接收和响应从客户端发送过来的请求,通常使用HTTP协议; 从技术层面来说Servlet就是一套接口.</p>
+<h3 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h3><p>创建:用户第一次访问Servlet创建Servlet的实例, 只会被创建一次, 所以是单例<br>销毁:当项目从服务器中移除的时候，或者关闭服务器的时候<br>用户第一次访问Servlet的时候,服务器会创建一个Servlet的实例,那么Servlet中init方法就会执行.任何一次请求服务器都会创建一个新的线程访问Servlet中的service的方法.在service方法内部根据请求的方式的不同调用doXXX的方法.(get请求调用doGet,post请求调用doPost).当Servlet中服务器中移除掉,或者关闭服务器,Servlet的实例就会被销毁,那么destroy方法就会执行.</p>
+<h3 id="Servlet配置"><a href="#Servlet配置" class="headerlink" title="Servlet配置"></a>Servlet配置</h3><p>编写Servlet：<br>第一步：编写一个类实现Servelet接口<br>第二步：配置Servlet的访问路径（WEB-INF–&gt;web.xml）<br>==Servlet的映射路径不能重复==</p>
+<p><code>url-pattern</code>配置方式共有三种:</p>
+<ol>
+<li>完全路径匹配 ：以 / 开始<code>&lt;url-pattern&gt;/ServletDemo1&lt;/url-pattern&gt;</code></li>
+<li>目录匹配 ：以 / 开始需要以 <em> 结束.`<url-pattern>/aaa/</url-pattern></em><code>如</code><a href="http://127.0.0.1/day11/aaa/easfes`" target="_blank" rel="noopener">http://127.0.0.1/day11/aaa/easfes`</a></li>
+<li>扩展名匹配 ：不能以 / 开始 以 <em> 开始的. `<url-pattern></url-pattern></em>.action<code>如</code><a href="http://127.0.0.1/day11/UserServlet.do`" target="_blank" rel="noopener">http://127.0.0.1/day11/UserServlet.do`</a></li>
+</ol>
+<p>==错误的写法 ：<code>/*.do</code>==</p>
+<ul>
+<li>绝对路径:不需要找位置相对关系. 以<code>/</code>开始的.<br>绝对路径中分为客户端路径和服务器端路径:<ul>
+<li>客户端路径一定要加工程名.<code>/day09/ServletDemo6</code></li>
+<li>服务器端路径不需要加工程名.<code>/ServletDemo6 （转发）</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置Servlet --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- servlet-name和servlet-class顺序不能颠倒 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet的名称 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet的全路径 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.itheima.a_servlet.ServletDemo1<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Servlet的映射 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- servlet-name和url-pattern顺序不能颠倒 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet的名称 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet的访问路径 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/ServletDemo1<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--访问的路径--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--http://localhost:8080/工程名称/ServletDemo1--&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Servlet执行流程"><a href="#Servlet执行流程" class="headerlink" title="Servlet执行流程"></a>Servlet执行流程</h3><p>浏览器访问—&gt; <code>&lt;url-pattern&gt;/ServletDemo1&lt;/url-pattern&gt;</code>  —&gt;匹配类路径<code>&lt;servlet-class&gt;xxx.ServletDemo1&lt;/servlet-class&gt;</code> —–&gt;服务器反射创建对应类的对象，调用方法执行 ——&gt;服务器返回响应到浏览器</p>
+<h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><ul>
+<li>用来获得全局初始化参数.</li>
+<li>用来获得文件的MIME的类型.</li>
+<li>作为域对象存取数据.(ServletContext是一个域对象)<ul>
+<li>作用范围:整个web工程.</li>
+<li>创建:服务器启动的时候,tomcat服务器为每个web项目创建一个单独ServletContext对象.</li>
+<li>销毁:服务器关闭的时候,或者项目从服务器中移除的时候.</li>
+</ul>
+</li>
+<li>用来读取web项目下的文件<br>默认在tomcat的项目根目录下（webapps—–&gt;项目）：<br><code>ServletContext.getResourceAsStream(&quot;/WEB-INF/classes/db.properties&quot;);</code><br>通过相对路径获得绝对路径<br><code>String realPath = context.getRealPath(&quot;/WEB-INF/classes/db.properties&quot;);</code><br>// 获得该文件的磁盘绝对路径.<br><code>InputStream is = new FileInputStream(realPath);</code></li>
+</ul>
+<h2 id="Request和Response"><a href="#Request和Response" class="headerlink" title="Request和Response"></a>Request和Response</h2><h3 id="Request接收参数"><a href="#Request接收参数" class="headerlink" title="Request接收参数"></a>Request接收参数</h3><ul>
+<li><code>String getParameter(String name);</code> —用于接收一个名称对应一个值的数据.</li>
+<li><code>String[] getParameterValues(String name);</code> —用于接收一个名称对应多个值的数据.</li>
+<li><code>Map getParameterMap();</code> —用于接收表单中的所有的数据,Map的key是表单提交的参数名称,Map的value是提交参数的值.</li>
+<li><code>Enumeration getParameterNames();</code> —用于获取表单中提交的所有的参数的名称.</li>
+</ul>
+<h3 id="Request获取客户机信息"><a href="#Request获取客户机信息" class="headerlink" title="Request获取客户机信息"></a>Request获取客户机信息</h3><ul>
+<li><code>String getRequestURI()</code> –获取请求URI  /day10/xxxx</li>
+<li><code>StringBuffer getRequestURL()</code> –获取请求的URL <a href="http://localhost:8080/day10/xxxx" target="_blank" rel="noopener">http://localhost:8080/day10/xxxx</a></li>
+<li><code>String getRemoteAddr()</code> –获取请求者的IP地址</li>
+<li><code>String getContextPath()</code> –获取项目名称  /day10</li>
+</ul>
+<h3 id="Request实现转发"><a href="#Request实现转发" class="headerlink" title="Request实现转发"></a>Request实现转发</h3><p>当使用了request域存储数据时还想做页面的跳转 就只能使用转发<br><code>req.getRequestDispatcher(&quot;path&quot;).forward(request, response);</code></p>
+<h3 id="Response对象常用API"><a href="#Response对象常用API" class="headerlink" title="Response对象常用API"></a>Response对象常用API</h3><p><code>resp.addCookie(cookie);</code> – 添加Cookie<br><code>resp.addHeader(name, value);</code> – 设置响应头信息<br><code>resp.setHeader(name, value);</code> – 设置响应头信息<br><code>resp.getWriter().print(&quot;&quot;);</code> – 使用字符流向页面输出<br><code>resp.sendRedirect(location);</code> – 使用重定向做页面跳转</p>
+<h3 id="处理中文乱码"><a href="#处理中文乱码" class="headerlink" title="处理中文乱码"></a>处理中文乱码</h3><p>接收中文乱码<br>get方式  <code>new String(String.getBytes(&quot;ISO-8859-1&quot;),&quot;UTF-8&quot;);</code><br>post方式 <code>request.setCharacterEncoding(“UTF-8”)</code></p>
+<p>输出中文乱码<br>字符流<br><code>response.setContentType(&quot;text/html;charset=UTF-8&quot;);</code><br>字节流<br><code>response.setHeader(&quot;Content-Type&quot;, &quot;text/html;charset=UTF-8&quot;);</code> – 设置浏览器默认打开的时候采用的字符集编码<br><code>response.getOutputStream().write(&quot;中文&quot;.getBytes(&quot;UTF-8&quot;));</code>    – 设置中文转成字节数组的时候取出的编码</p>
+<h2 id="转发和重定向"><a href="#转发和重定向" class="headerlink" title="转发和重定向"></a>转发和重定向</h2><ul>
+<li>重定向的地址栏会发生变化,转发的地址栏不变</li>
+<li>重定向两次请求两次响应,转发一次请求一次响应</li>
+<li>重定向路径需要加工程名,转发的路径不需要加工程名</li>
+<li>重定向可以跳转到任意网站,转发只能在服务器内部进行转发</li>
+<li>重定向不能使用request域存储数据，转发可以使用request存储数据</li>
+</ul>
+<h2 id="域对象"><a href="#域对象" class="headerlink" title="域对象"></a>域对象</h2><p>域对象的主要作用是在各个页面或者Servlet之间进行数据的传递</p>
+<h3 id="域对象存取API"><a href="#域对象存取API" class="headerlink" title="域对象存取API"></a>域对象存取API</h3><p>存入数据:<code>setAttribute(key,value)</code><br>获取数据:<code>Object getAttribute(key)</code><br>移除数据:<code>removeAttribute(key)</code></p>
+<h3 id="ServletContext域对象"><a href="#ServletContext域对象" class="headerlink" title="ServletContext域对象"></a>ServletContext域对象</h3><p>作用范围:整个web工程.<br>创建:服务器启动的时候,tomcat服务器为每个web项目创建一个单独ServletContext对象.<br>销毁:服务器关闭的时候,或者项目从服务器中移除的时候.</p>
+<h3 id="Request域对象"><a href="#Request域对象" class="headerlink" title="Request域对象"></a>Request域对象</h3><p>request的作用范围就是一次请求的范围(同一个请求)<br>创建:客户端向服务器发送了一次请求以后,服务器就会创建一个request的对象<br>销毁:当服务器对这次请求作出了响应之后</p>
+<h3 id="Session域对象"><a href="#Session域对象" class="headerlink" title="Session域对象"></a>Session域对象</h3><p>session作用范围多次请求.(一次会话)<br>创建:服务器端第一次调用getSession()创建session.，以后调用getSession获得同一个<br>销毁:三种情况销毁session</p>
+<ol>
+<li>session过期. 默认过期时间为30分钟.<br> 在Tomcat设置：所有的项目的session<br> 在某个项目中的web.xml设置：当前工程的所有session<br> 给某个session对象设置：对应的session对象<br> <code>setMaxInactiveInterval(int interval)</code></li>
+<li>非正常关闭服务器.如果正常关闭session序列化到硬盘.</li>
+<li>手动调用session.invalidate();</li>
+</ol>
+<p>==浏览器关闭Session并未销毁,只是保存SessionID的Cookie销毁了(Cookie的默认是会话基本)==</p>
+<h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><p>会话: 用户打开一个浏览器访问页面,访问网站的很多页面,访问完成后将浏览器关闭的过程称为是一次会话.<br>常见的会话技术:</p>
+<ul>
+<li>Cookie  :将数据保存到客户端浏览器.</li>
+<li>Session :将数据保存到服务器端.</li>
+<li>URL重写</li>
+<li>隐藏表单域 hidden</li>
+</ul>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><h4 id="Cookie常用API"><a href="#Cookie常用API" class="headerlink" title="Cookie常用API"></a>Cookie常用API</h4><ul>
+<li><code>void addCookie(Cookie cookie);</code> –向浏览器写回Cookie(HttpServletResponse)</li>
+<li><code>Cookie[] getCookies();</code> – 获得浏览器带过来的Cookie(HttpServletRequest)</li>
+<li><code>Cookie(String name,String value);</code> – 创建一个Cookie对象</li>
+<li><code>getName();</code>  –获取Cookie的名称</li>
+<li><code>getValue();</code>   –获取Cookie的值</li>
+<li><code>setDomain(String domain);</code> – 设置Cookie的有效域名.</li>
+<li><code>setPath(String path);</code> – 设置Cookie的有效路径.</li>
+<li><code>setMaxAge(int maxAge);</code> – 设置Cookie的有效时间.</li>
+</ul>
+<h4 id="Cookie路径问题"><a href="#Cookie路径问题" class="headerlink" title="Cookie路径问题"></a>Cookie路径问题</h4><p><code>http://localhost:8080/JavaEE10/Demo/CountServlet2</code> 这个路径下创建<br><code>http://localhost:8080/JavaEE10/Demo/ServletDemo1</code>  可以获取<br><code>http://localhost:8080/JavaEE10/Demo/AAA/ServletDemo2</code>  可以获取<br><code>http://localhost:8080/JavaEE10/ServletDemo3</code>  不能获取</p>
+<h4 id="Cookie时间问题"><a href="#Cookie时间问题" class="headerlink" title="Cookie时间问题"></a>Cookie时间问题</h4><p>如果不手动设置值它的默认值是-1,即为临时Cookie<br>如果想删除一个cookie的话就给它设置为0<br>如果给它设置为一个正数值,代表就是它的存活时间 <code>60 * 60 * 24 * 7</code></p>
+<h4 id="Cookie的分类"><a href="#Cookie的分类" class="headerlink" title="Cookie的分类"></a>Cookie的分类</h4><ul>
+<li>会话级别的Cookie:默认的Cookie.关闭浏览器Cookie就会销毁.</li>
+<li>持久级别的Cookie:可以设置Cookie的有效时间.那么关闭浏览器Cookie还会存在. 手动销毁持久性<code>Cookie.setMaxAge(0)</code>(前提是有效路径必须一致)</li>
+</ul>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>Session的创建<br>服务器端第一次调用<code>req.getSession()</code>创建session.以后调用<code>getSession()</code>获得的是同一个</p>
+<p>Session的销毁</p>
+<ol>
+<li>session过期. 默认过期时间为30分钟.<br> 在Tomcat设置：所有的项目的session<br> 在某个项目中的web.xml设置：当前工程的所有session<br> 给某个session对象设置：对应的session对象<br> <code>setMaxInactiveInterval(int interval)</code></li>
+<li>非正常关闭服务器.如果正常关闭session序列化到硬盘.</li>
+<li>手动调用session.invalidate();</li>
+</ol>
+<h3 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a>Cookie和Session的区别</h3><ul>
+<li>Cookie本身是有大小和个数的限制.大小一般不超过4KB, 个数的不超过20个,Session没有限制.</li>
+<li>Cookie的数据保存在客户端,Session数据保存在服务器端.</li>
+<li>Cookie只能存储String Session可以存储object</li>
+<li>Session是域对象 Cookie不是域对象</li>
+<li>Session是依赖于Cookie Cookie被禁止了，默认session也不能使用</li>
+</ul>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><h3 id="过滤器概念"><a href="#过滤器概念" class="headerlink" title="过滤器概念"></a>过滤器概念</h3><p>过滤器是拦在请求和目标资源之间的一层网,我们可以在一次请求到达它的目标资源之前对这次请求进行拦截并进行处理<br>拦截到请求之后可以修改请求并决定是否要进行放行,也可以在请求返回时对期进行拦截并做处理</p>
+<h3 id="过滤器的写法"><a href="#过滤器的写法" class="headerlink" title="过滤器的写法"></a>过滤器的写法</h3><ol>
+<li>编写java类实现Filter接口，并实现其doFilter方法。</li>
+<li>在 web.xml 文件中使用<code>&lt;filter&gt;</code>和<code>&lt;filter-mapping&gt;</code>元素对编写的filter类进行注册，并设置它所能拦截的资源。</li>
+</ol>
+<ul>
+<li>编写一个类实现Filter接口:<br><code>doFilter(request,response,FilterChain)</code> 处理逻辑</li>
+<li><p>配置过滤器:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置过滤器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.itheima.filter.FilterDemo1<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 指定这个过滤器要拦截的资源路径 --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 一个过滤器可以设置多个拦截路径 指定多个filter-mapping或者是指定多个url-pattern --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo4/demo1.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="过滤器的相关配置"><a href="#过滤器的相关配置" class="headerlink" title="过滤器的相关配置"></a>过滤器的相关配置</h3><p><code>&lt;url-pattern&gt;</code>的配置：<br>完全路径匹配：以 / 开始  <code>/demo4/demo1.jsp</code><br>目录匹配：以 / 开始 以 <em> 结束.  `/</em><code></code>/demo1/<em>`<br>扩展名匹配：不能以 / 开始 以 </em> 开始.  <code>*.do</code>  <code>*.action</code></p>
+<p><code>&lt;servlet-name&gt;</code>的配置:<br>根据Servlet的名称拦截Servlet</p>
+<p><code>&lt;dispatcher&gt;</code>的配置:</p>
+<ul>
+<li>REQUEST：当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过<code>RequestDispatcher</code>的<code>include()</code>或<code>forward()</code>方法访问时，那么该过滤器就不会被调用。(默认值)</li>
+<li>INCLUDE：如果目标资源是通过<code>RequestDispatcher的include()</code>方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。只要是通过<code>&lt;jsp:include page=&quot;xxx.jsp&quot; /&gt;</code>，嵌入进来的页面，每嵌入的一个页面，都会走一次指定的过滤器</li>
+<li>FORWARD：如果目标资源是通过<code>RequestDispatcher</code>的<code>forward()</code>方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。</li>
+<li>ERROR：如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用。除此之外，过滤器不会被调用。</li>
+</ul>
+<h2 id="JSP-amp-EL-amp-JSTL"><a href="#JSP-amp-EL-amp-JSTL" class="headerlink" title="JSP&amp;EL&amp;JSTL"></a>JSP&amp;EL&amp;JSTL</h2><h3 id="JSP中的三个指令"><a href="#JSP中的三个指令" class="headerlink" title="JSP中的三个指令"></a>JSP中的三个指令</h3><p><code>&lt;%@page&gt;</code>指令 用于设置当前JSP页面的属性及其导包<br><code>&lt;%@include&gt;</code>指令 用于设置当前JSP页面包含其他JSP页面(静态包含)<br><code>&lt;%@taglib&gt;</code>指令 用于给当前JSP页面导入标签库<br>静态包含和动态包含的区别<code>(&lt;%@ include  file=&quot;&quot;%&gt;和&lt;jsp:include&gt;)</code><br>静态包含：直接将源代码拷贝到目标文件中，一起翻译成<code>.java</code>编译运行<br>动态包含：每个文件单独翻译成<code>.java</code>单独编译，将编译后运行的结果进行包含.调用一个方法将结果包含</p>
+<h3 id="JSP中有九大内置对象"><a href="#JSP中有九大内置对象" class="headerlink" title="JSP中有九大内置对象"></a>JSP中有九大内置对象</h3><ul>
+<li>request</li>
+<li>response</li>
+<li>session</li>
+<li>application   ServletContext</li>
+<li>page  当前页面</li>
+<li>pageContext  可以获得其他8个内置对象</li>
+<li>config</li>
+<li>out    JspWriter</li>
+<li>exception</li>
+</ul>
+<h3 id="JSP的四个域范围"><a href="#JSP的四个域范围" class="headerlink" title="JSP的四个域范围"></a>JSP的四个域范围</h3><ul>
+<li>PageScope: 当前页面中有效.<br>  <code>pageContext PageContext</code></li>
+<li>RequestScope: 一次请求范围.<br>  <code>request HttpServletRequest</code></li>
+<li>SessionScope: 一次会话范围.<br>  <code>session HttpSession</code></li>
+<li>ApplicationScope: 整个应用范围<br>  <code>application ServletContext</code></li>
+</ul>
+<h3 id="EL表达式获取域对象中的值"><a href="#EL表达式获取域对象中的值" class="headerlink" title="EL表达式获取域对象中的值"></a>EL表达式获取域对象中的值</h3><p>获取域对象 <code>${ applicationScope.name }</code><br>访问数组元素 <code>${ arrs[下标] }</code><br>访问集合 <code>${ list[下标] }</code> <code>${ map.key的值 }</code><br>获取对象的属性 <code>${ user.id }</code><br>获取对象的集合的数据 <code>${ userList[0].id }</code></p>
+<p><code>.</code>和<code>[]</code>的区别<br><code>[]</code>用于有下标的数据(数组,list集合) <code>.</code>用于有属性的数据(map,对象)<br>如果属性名中包含有特殊的字符.必须使用<code>[]</code><br>如果EL表达式从四个域对象中没有取到值会返回<code>&quot;&quot;</code>, 而不是<code>null</code>, 但属性名写错会报错，如 <code>${user.naaa}</code><br>在书写表达式时，如果没有指定搜索范围，那么系统会依次调用<code>pageContext</code>、<code>request</code>、<code>session</code>、<code>application</code>的<code>getAttribute()</code>方法<br>这样不限定查找范围的代码不利于排错，所以这种取值的操作可以先定对象的查找范围,如：<code>${sessionScope.user.name}</code><br>一旦指定了对象所在的范围，那么只会在范围内查找绑定对象，不会在找不到的时候再去其他区域中查找了</p>
+<h3 id="EL表达式执行运算"><a href="#EL表达式执行运算" class="headerlink" title="EL表达式执行运算"></a>EL表达式执行运算</h3><ol>
+<li>EL执行算数运算 <code>${ n1 + n2 }</code></li>
+<li>EL执行比较运算 <code>${ n1 eq n2 }</code></li>
+<li>EL执行关系运算 <code>and  or    not</code></li>
+<li>EL执行三元运算 <code>${ n1 &lt; n2 ? &quot;正确&quot;:&quot;错误&quot; }</code></li>
+<li>判断null <code>${ empty user }`</code>${ not empty user }`<br>空运算主要用于判断字符串，集合是否为空，是空或为null及找不到值时都会输出true</li>
+</ol>
+<h3 id="EL表达式操作WEB开发的常用的对象"><a href="#EL表达式操作WEB开发的常用的对象" class="headerlink" title="EL表达式操作WEB开发的常用的对象"></a>EL表达式操作WEB开发的常用的对象</h3><p><code>pageScope,requestScope,sessionScope,applicationScope</code> - 获取JSP中域中的数据<br><code>param,paramValues</code> - 接收参数.<br><code>header,headerValues</code> - 获取请求头信息<br><code>initParam</code> - 获取全局初始化参数<br><code>cookie</code> - WEB开发中cookie<br><code>pageContext</code> - WEB开发中的pageContext.</p>
+<ol>
+<li><code>${ param.id }===request.getPamameter(“id&quot;)</code></li>
+<li>获取Cookie中的值<code>${ cookie.history.value }</code></li>
+<li>调用API：<code>${ pageContext.request.remoteAddr }</code> <code>${ pageContext.request.contextPath }</code></li>
+</ol>
+<h3 id="JSTL标签"><a href="#JSTL标签" class="headerlink" title="JSTL标签"></a>JSTL标签</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span>  test=<span class="string">"$&#123;&#125;"</span>&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;/c:if&gt;</span><br><span class="line">&lt;%-- c:<span class="keyword">if</span> 没有<span class="keyword">else</span>语句 --%&gt;</span><br></pre></td></tr></table></figure>
+<p>forEach<br>加强<code>For: var=&quot;i&quot;   items = “{被遍历的对象}&quot;</code><br>普通<code>for: var =&quot;i&quot;  begin=&quot;开始数据&quot; end=&quot;结束数据&quot;  step=&quot;步数&quot; varstatus=&quot;&quot;</code> 统计循环的个数<br>其中items属性为要遍历的集合，var属性为每次取出来的一个对象，varStatus指定当前迭代的状态</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items=<span class="string">"$&#123;users&#125;"</span> var=<span class="string">"u"</span> varStatus=<span class="string">"s"</span>&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">    &lt;td&gt;$&#123;s.count&#125;&lt;/td&gt;</span><br><span class="line">    &lt;td&gt;$&#123;u.name&#125;&lt;/td&gt;</span><br><span class="line">    &lt;td&gt;$&#123;u.age&#125;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC：<br>Model  模型层(Javabean)<br>View视图层(JSP,可分为物理视图和逻辑视图)<br>Controller 控制层(Servlet)<br>MVC是一种设计模式也是一种编程思想, 除了Java开发中其他平台也都会使用这种设计模式, 它不同于JavaEE的三层结构</p>
+<h2 id="反射常用API"><a href="#反射常用API" class="headerlink" title="反射常用API"></a>反射常用API</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取Class对象的三种方法</span></span><br><span class="line"><span class="comment">// 第一种方式</span></span><br><span class="line">Class clazz1 = Person.class;</span><br><span class="line"><span class="comment">// 第二种方式</span></span><br><span class="line">Person person = <span class="keyword">new</span> Person();</span><br><span class="line">Class clazz2 = person.getClass();</span><br><span class="line"><span class="comment">// 第三种方式(最常用)</span></span><br><span class="line">Class clazz3 = Class.forName(<span class="string">"com.itheima.demo.Person"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得类中的方法:包括私有方法</span></span><br><span class="line">Method method = clazz.getDeclaredMethod(<span class="string">"run"</span>);</span><br><span class="line"><span class="comment">// 获得方法执行权</span></span><br><span class="line">method.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">// 执行方法</span></span><br><span class="line">method.invoke(clazz.newInstance());<span class="comment">// p.run();</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得带有参数的方法:</span></span><br><span class="line">Method method2 = clazz.getDeclaredMethod(<span class="string">"sayHello"</span>, String.class);</span><br><span class="line">String s = (String) method2.invoke(clazz.newInstance(), <span class="string">"凤姐"</span>); <span class="comment">// String s = p.sayHello("凤姐");</span></span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="事务特性（ACID）"><a href="#事务特性（ACID）" class="headerlink" title="事务特性（ACID）"></a>事务特性（ACID）</h3><ul>
+<li>原子性：强调事务的不可分割.</li>
+<li>一致性：强调的是事务的执行的前后，数据的完整性要保持一致.</li>
+<li>隔离性：一个事务的执行不应该受到其他事务的干扰.</li>
+<li>持久性：事务一旦结束(提交/回滚)数据就持久保持到了数据库.</li>
+</ul>
+<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><ul>
+<li>脏读: 一个事务读到另一个事务还没有提交的数据.</li>
+<li>不可重复读: 一个事务读到了另一个事务已经提交的update的数据,导致在当前的事务中多次查询结果不一致.</li>
+<li>虚读/幻读: 一个事务读到另一个事务已经提交的insert的数据,导致在当前的事务中多次的查询结果不一致.</li>
+</ul>
+<h3 id="设置事务的隔离级别"><a href="#设置事务的隔离级别" class="headerlink" title="设置事务的隔离级别"></a>设置事务的隔离级别</h3><ul>
+<li><code>read uncommitted</code>: 未提交读.脏读，不可重复读，虚读都可能发生.</li>
+<li><code>read committed</code>: 已提交读.避免脏读.但是不可重复读和虚读有可能发生.(Oracle默认级别)</li>
+<li><code>repeatable read</code>: 可重复读.避免脏读,不可重复读.但是虚读有可能发生.(MYSQL默认级别)</li>
+<li><code>serializable</code>: 串行化的.避免脏读，不可重复读，虚读的发生.</li>
+</ul>
+<h3 id="DBUtils管理事务"><a href="#DBUtils管理事务" class="headerlink" title="DBUtils管理事务"></a>DBUtils管理事务</h3><p><code>conn = JDBCUtils.getConnection();</code> – 获得连接<br><code>conn.setAutoCommit(false);</code> – 关闭MySQL的自动提交<br><code>QueryRunner queryRunner = new QueryRunner();</code><br><code>queryRunner.update(conn, sql, money,to);</code> – 使用上层传递过来的连接<br><code>queryRunner.query.(conn…….)</code> – 使用上层传递过来的连接<br><code>DbUtils.commitAndCloseQuietly(conn);</code> – 提交事务并关闭连接<br><code>DbUtils.rollbackAndCloseQuietly(conn);</code> – 回滚事务并关闭连接</p>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>中括号代表数组, 大括号代表对象,只能出现的字符有<code>[] {} &quot;&quot; , :</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"id"</span>:<span class="number">1</span>,<span class="attr">"name"</span>:aaa&#125;</span><br><span class="line">[&#123;<span class="attr">"id"</span>:<span class="number">1</span>,<span class="attr">"name"</span>:aaa&#125;,&#123;<span class="attr">"id"</span>:<span class="number">2</span>,<span class="attr">"name"</span>:bbb&#125;]</span><br><span class="line">&#123;<span class="attr">"city"</span>:&#123;<span class="attr">"cid"</span>:<span class="number">1</span>,<span class="attr">"cname"</span>:<span class="string">"xxx"</span>&#125;&#125;</span><br><span class="line">&#123;</span><br><span class="line">    code: 101,</span><br><span class="line">    msg: 成功,</span><br><span class="line">    content: [</span><br><span class="line">        &#123; key:value,key:value...&#125;,</span><br><span class="line">        &#123; key:value,key:value...&#125;,</span><br><span class="line">        &#123; key:value,key:value...&#125;,</span><br><span class="line">        &#123; key:value,key:value...&#125;</span><br><span class="line">        ....</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将List集合转成JSON:</span></span><br><span class="line">JsonConfig config = <span class="keyword">new</span> JsonConfig();</span><br><span class="line"><span class="comment">// 在转换时不包括pid字段</span></span><br><span class="line">config.setExcludes(<span class="keyword">new</span> String[]&#123;<span class="string">"pid"</span>&#125;);</span><br><span class="line">JSONArray jsonArray = JSONArray.fromObject(list,config);</span><br><span class="line"><span class="comment">//JSONObject.fromObject(object)</span></span><br><span class="line">response.getWriter().println(jsonArray.toString());<span class="comment">//&#123;xxx:xxx&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">"/day15/ServletDemo8"</span>,&#123;<span class="string">"pid"</span>:pid&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $city = $(<span class="string">"#city"</span>);</span><br><span class="line">    $city.html(<span class="string">"&lt;option&gt;-请选择-&lt;/option&gt;"</span>);</span><br><span class="line">    $(data).each(<span class="function"><span class="keyword">function</span>(<span class="params">i,n</span>)</span>&#123;</span><br><span class="line">        $city.append(<span class="string">"&lt;option value='"</span>+n.cid+<span class="string">"'&gt;"</span>+n.cname+<span class="string">"&lt;/option&gt;"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,<span class="string">"json"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Data就是Servlet中response.getWriter().println(1);输出的内容</span></span><br><span class="line"><span class="comment">// $.post 和 $.get写法上一样,具体选择的时候可以根据参数的长度和参数安全判断,一般都会使用$.post</span></span><br><span class="line"><span class="comment">// $.ajax则和上面两个不一样,使用$.ajax可以自己手动设置请求方式(同步/异步),根据不同的返回做出不同的显示</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">"#username"</span>).blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 获得文本框的值:</span></span><br><span class="line">        <span class="keyword">var</span> username = $(<span class="keyword">this</span>).val();</span><br><span class="line">        <span class="comment">// 演示load方法:</span></span><br><span class="line">        <span class="comment">// $("#s1").load("/day15/ServletDemo3",&#123;"username":username&#125;);</span></span><br><span class="line">        <span class="comment">// 演示get/post方法:</span></span><br><span class="line">        $.post(<span class="string">"/day15/ServletDemo3"</span>,&#123;<span class="string">"username"</span>:username&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(data == <span class="number">1</span>)&#123;</span><br><span class="line">                $(<span class="string">"#s1"</span>).html(<span class="string">"&lt;font color='green'&gt;用户名可以使用&lt;/font&gt;"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(data == <span class="number">2</span>)&#123;</span><br><span class="line">                $(<span class="string">"#s1"</span>).html(<span class="string">"&lt;font color='red'&gt;用户名已经存在&lt;/font&gt;"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><ul>
+<li>物理分页:一次只查10条记录,点击下一页,再去查询后10条.使用SQL语句进行控制的分页.<ul>
+<li>缺点:经常需要和数据库交互.</li>
+<li>优点:数据量特别大,不会导致内存的溢出.</li>
+</ul>
+</li>
+<li>逻辑分页:一次性将所有数据全都查询出来,根据需要进行截取.List集合进行控制. subList();<ul>
+<li>缺点:数据量如果特别大,容易导致内存溢出.</li>
+<li>优点:与数据库交互次数少.</li>
+</ul>
+</li>
+</ul>
+<p>MYSQL进行分页: 使用<code>limit</code>关键字.<br><code>select * from xxx where .. Group by ... Having ... Order by ... limit a,b;</code> – a:从哪开始  b:查询的记录数.</p>
+<p>封装PageBean<br>计算总页数，开始记录数，每页记录数，当前页码，数据</p>
+<h2 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h2><p>动态代理技术就是用来产生一个对象的代理对象的<br>代理对象存在的价值主要用于拦截对真实业务对象的访问<br>代理对象应该具有和目标对象(真实业务对象)相同的方法<br>现在要生成某一个对象的代理对象，这个代理对象通常也要编写一个类来生成,通过<code>Proxy</code>类提供的一个<code>newProxyInstance</code>方法用来创建一个对象的代理对象<br><code>static Object newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h)</code><br><code>newProxyInstance</code>方法用来返回一个代理对象，这个方法总共有3个参数<br><code>ClassLoader loader</code> 用来指明生成代理对象使用哪个类装载器<br><code>Class&lt;?&gt;[] interfaces</code> 用来指明生成哪个对象的代理对象，通过接口指定<br><code>InvocationHandler h</code> 用来指明产生的这个代理对象要做什么事情<br>所以我们只需要调用<code>newProxyInstance</code>方法就可以得到某一个对象的代理对象了<br>在java中规定，要想产生一个对象的代理对象，那么==这个对象必须要有一个接口==,所以只有实现了接口的类才可以创建他的代理对象<br>Proxy类负责创建代理对象时，如果指定了handler（处理器），那么不管用户调用代理对象的什么方法，该方法都是调用处理器的invoke方法<br>由于invoke方法被调用需要三个参数：代理对象、方法、方法的参数，因此不管代理对象哪个方法调用处理器的invoke方法，都必须把自己所在的对象、自己（调用invoke方法的方法）、方法的参数传递进来。<br>因此在动态代理技术里，由于不管用户调用代理对象的什么方法，都是调用开发人员编写的处理器的invoke方法（这相当于invoke方法拦截到了代理对象的方法调用）</p>
+<p>动态代理和装饰者模式<br>相同点 : 都能增强一个类的方法<br>不同的 : 如果是装饰者我们得自己写一个装饰者类  实现被装饰者的接口<br>        如果是动态代理  我们直接使用Proxy对象  代理对象<br>其实动态代理解决了装饰者模式的最大缺点就是你不用把接口中所有的方法都重新调用一遍<br>不管是装饰者还是动态代理都会有一个新的类产生  装饰者类  Proxy对象  是在原来的被增强的类基础上进行增强</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> HttpServletRequest req = (HttpServletRequest) request;</span><br><span class="line">    <span class="comment">// 增强req:</span></span><br><span class="line">    HttpServletRequest myReq = (HttpServletRequest) Proxy.newProxyInstance(req.getClass().getClassLoader(),</span><br><span class="line">            req.getClass().getInterfaces(), <span class="keyword">new</span> InvocationHandler() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                    <span class="comment">// 判断执行的方法是否是getParameter:</span></span><br><span class="line">                    <span class="keyword">if</span>(<span class="string">"getParameter"</span>.equals(method.getName()))&#123;</span><br><span class="line">                        <span class="comment">// 调用的是getParameter:需要增强这个方法.</span></span><br><span class="line">                        <span class="comment">// 判断请求方式是GET还是POST:</span></span><br><span class="line">                        String type = req.getMethod();</span><br><span class="line">                        <span class="keyword">if</span>(<span class="string">"get"</span>.equalsIgnoreCase(type))&#123;</span><br><span class="line">                            String value = (String) method.invoke(req, args);</span><br><span class="line">                            value = <span class="keyword">new</span> String(value.getBytes(<span class="string">"ISO-8859-1"</span>),<span class="string">"UTF-8"</span>);</span><br><span class="line">                            <span class="keyword">return</span> value;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"post"</span>.equalsIgnoreCase(type))&#123;</span><br><span class="line">                            req.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> method.invoke(req, args);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">    chain.doFilter(myReq, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/零散/" rel="tag"># 零散</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/总结/" rel="tag"># 总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/09/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#部分总结"><span class="nav-number">1.</span> <span class="nav-text">部分总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.1.</span> <span class="nav-text">Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">1.2.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">Servlet概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet生命周期"><span class="nav-number">1.2.2.</span> <span class="nav-text">Servlet生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet配置"><span class="nav-number">1.2.3.</span> <span class="nav-text">Servlet配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet执行流程"><span class="nav-number">1.2.4.</span> <span class="nav-text">Servlet执行流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServletContext"><span class="nav-number">1.3.</span> <span class="nav-text">ServletContext</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request和Response"><span class="nav-number">1.4.</span> <span class="nav-text">Request和Response</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Request接收参数"><span class="nav-number">1.4.1.</span> <span class="nav-text">Request接收参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request获取客户机信息"><span class="nav-number">1.4.2.</span> <span class="nav-text">Request获取客户机信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request实现转发"><span class="nav-number">1.4.3.</span> <span class="nav-text">Request实现转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Response对象常用API"><span class="nav-number">1.4.4.</span> <span class="nav-text">Response对象常用API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理中文乱码"><span class="nav-number">1.4.5.</span> <span class="nav-text">处理中文乱码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转发和重定向"><span class="nav-number">1.5.</span> <span class="nav-text">转发和重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域对象"><span class="nav-number">1.6.</span> <span class="nav-text">域对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域对象存取API"><span class="nav-number">1.6.1.</span> <span class="nav-text">域对象存取API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ServletContext域对象"><span class="nav-number">1.6.2.</span> <span class="nav-text">ServletContext域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request域对象"><span class="nav-number">1.6.3.</span> <span class="nav-text">Request域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session域对象"><span class="nav-number">1.6.4.</span> <span class="nav-text">Session域对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#会话技术"><span class="nav-number">1.7.</span> <span class="nav-text">会话技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie"><span class="nav-number">1.7.1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie常用API"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">Cookie常用API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie路径问题"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">Cookie路径问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie时间问题"><span class="nav-number">1.7.1.3.</span> <span class="nav-text">Cookie时间问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的分类"><span class="nav-number">1.7.1.4.</span> <span class="nav-text">Cookie的分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session"><span class="nav-number">1.7.2.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie和Session的区别"><span class="nav-number">1.7.3.</span> <span class="nav-text">Cookie和Session的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器"><span class="nav-number">1.8.</span> <span class="nav-text">过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器概念"><span class="nav-number">1.8.1.</span> <span class="nav-text">过滤器概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器的写法"><span class="nav-number">1.8.2.</span> <span class="nav-text">过滤器的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器的相关配置"><span class="nav-number">1.8.3.</span> <span class="nav-text">过滤器的相关配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP-amp-EL-amp-JSTL"><span class="nav-number">1.9.</span> <span class="nav-text">JSP&amp;EL&amp;JSTL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP中的三个指令"><span class="nav-number">1.9.1.</span> <span class="nav-text">JSP中的三个指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP中有九大内置对象"><span class="nav-number">1.9.2.</span> <span class="nav-text">JSP中有九大内置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的四个域范围"><span class="nav-number">1.9.3.</span> <span class="nav-text">JSP的四个域范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EL表达式获取域对象中的值"><span class="nav-number">1.9.4.</span> <span class="nav-text">EL表达式获取域对象中的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EL表达式执行运算"><span class="nav-number">1.9.5.</span> <span class="nav-text">EL表达式执行运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EL表达式操作WEB开发的常用的对象"><span class="nav-number">1.9.6.</span> <span class="nav-text">EL表达式操作WEB开发的常用的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSTL标签"><span class="nav-number">1.9.7.</span> <span class="nav-text">JSTL标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">1.10.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反射常用API"><span class="nav-number">1.11.</span> <span class="nav-text">反射常用API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.12.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务特性（ACID）"><span class="nav-number">1.12.1.</span> <span class="nav-text">事务特性（ACID）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务隔离级别"><span class="nav-number">1.12.2.</span> <span class="nav-text">事务隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置事务的隔离级别"><span class="nav-number">1.12.3.</span> <span class="nav-text">设置事务的隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBUtils管理事务"><span class="nav-number">1.12.4.</span> <span class="nav-text">DBUtils管理事务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON"><span class="nav-number">1.13.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">1.14.</span> <span class="nav-text">Ajax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页"><span class="nav-number">1.15.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态代理"><span class="nav-number">1.16.</span> <span class="nav-text">动态代理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
